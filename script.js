@@ -58,7 +58,7 @@ $(document).ready(function(){
         localStorage.setItem(hourId, userInput)
 
         textArea.val(userInput)
-        showAlert('Text successfully saved!', 'success')
+        showAlert('Event successfully saved!', 'success')
       }
     }
 
@@ -73,12 +73,12 @@ $(document).ready(function(){
       const textArea = $('#' + hourId).find('textarea.description')
 
       if (textArea.val().trim() !== '') {
-        const confirmation = confirm('Are you sure you want to clear the text? This action cannot be undone.')
+        const confirmation = confirm('Are you sure you want to clear the event? This action cannot be undone.')
 
         if (confirmation) {
           textArea.val('')
           localStorage.removeItem(hourId)
-          showAlert('Text cleared successfully!', 'success')
+          showAlert('Event cleared successfully!', 'success')
         }
       }
     })
