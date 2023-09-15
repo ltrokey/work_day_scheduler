@@ -1,7 +1,3 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-
 $(document).ready(function(){
     // Date
     var currentDay = new Date()
@@ -17,57 +13,56 @@ $(document).ready(function(){
 
 
     //  Save User Input
-    function loadSavedText(textAreaId) {
-      const savedInput = localStorage.getItem(textAreaId);
+    function loadSavedText(hourId) {
+      const savedInput = localStorage.getItem(hourId)
       if (savedInput) {
-        $('#' + textAreaId).val(savedInput);
+        $('#' + hourId).find('textarea.description').val(savedInput)
       }
     }
 
-    loadSavedText('textArea9');
-    loadSavedText('textArea10');
-    loadSavedText('textArea11');
-    loadSavedText('textArea12');
-    loadSavedText('textArea1');
-    loadSavedText('textArea2');
-    loadSavedText('textArea3');
-    loadSavedText('textArea4');
-    loadSavedText('textArea5');
+    loadSavedText('hour-9')
+    loadSavedText('hour-10')
+    loadSavedText('hour-11')
+    loadSavedText('hour-12')
+    loadSavedText('hour-1')
+    loadSavedText('hour-2')
+    loadSavedText('hour-3')
+    loadSavedText('hour-4')
+    loadSavedText('hour-5')
 
-    function handleSaveClick(textAreaId) {
-      const textArea = $('#' + textAreaId);
-      const userInput = textArea.val();
+    function handleSaveClick(hourId) {
+      const textArea = $('#' + hourId).find('textarea.description')
+      const userInput = textArea.val()
 
       if (userInput.trim() === '') {
-        alert('Please enter some text before saving.');
+        alert('Please enter some text before saving.')
       } else {
-        localStorage.setItem(textAreaId, userInput);
+        localStorage.setItem(hourId, userInput)
 
-        textArea.val(userInput);
-        alert('Text successfully saved!');
+        textArea.val(userInput)
+        alert('Text successfully saved!')
       }
     }
 
     $('.saveBtn').on('click', function () {
-      const textAreaId = $(this).prev('textarea').attr('id');
-      handleSaveClick(textAreaId);
-    });
+      const hourId = $(this).closest('.time-block').attr('id')
+      handleSaveClick(hourId)
+    })
 
-    // clear button
-  $('.clearBtn').on('click', function () {
-    const textAreaId = $(this).siblings('textarea').attr('id');
-    const textArea = $('#' + textAreaId);
+    $('.clearBtn').on('click', function () {
+      const hourId = $(this).closest('.time-block').attr('id')
+      const textArea = $('#' + hourId).find('textarea.description')
 
-    if (textArea.val().trim() !== '') {
-      const confirmation = confirm('Are you sure you want to clear the text? This action cannot be undone.');
+      if (textArea.val().trim() !== '') {
+        const confirmation = confirm('Are you sure you want to clear the text? This action cannot be undone.')
 
-      if (confirmation) {
-        textArea.val('');
-        localStorage.removeItem(textAreaId);
-        alert('Text cleared successfully!');
+        if (confirmation) {
+          textArea.val('')
+          localStorage.removeItem(hourId)
+          alert('Text cleared successfully!')
+        }
       }
-    }
-  });
+    })
 
 })
 
@@ -86,9 +81,4 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
 })
