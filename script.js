@@ -53,6 +53,22 @@ $(document).ready(function(){
       handleSaveClick(textAreaId);
     });
 
+    // clear button
+  $('.clearBtn').on('click', function () {
+    const textAreaId = $(this).siblings('textarea').attr('id');
+    const textArea = $('#' + textAreaId);
+
+    if (textArea.val().trim() !== '') {
+      const confirmation = confirm('Are you sure you want to clear the text? This action cannot be undone.');
+
+      if (confirmation) {
+        textArea.val('');
+        localStorage.removeItem(textAreaId);
+        alert('Text cleared successfully!');
+      }
+    }
+  });
+
 })
 
 
