@@ -1,6 +1,11 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+  background-color: #c89a99;
+}
+
+h1 {
+  color:white;
 }
 
 textarea {
@@ -12,8 +17,15 @@ textarea {
   padding: 10px;
 }
 
+#alertText {
+  letter-spacing: 1px;
+  font-size: medium;
+  font-style: italic;
+}
+
 .description {
   white-space: pre-wrap;
+  border: 1px dashed lightgray;
 }
 
 .time-block {
@@ -28,32 +40,50 @@ textarea {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .past {
-  background-color: #d3d3d3;
+  background-color: #8fb9b5;
   color: white;
 }
 
 .present {
-  background-color: #ff6961;
+  background-color: #c9a5a5;
   color: white;
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #775269;
   color: white;
 }
 
 .saveBtn {
   border-left: 1px solid black;
+  border-right: 1px solid black;
+  background-color: #449e9e;
+  color: white;
+}
+
+.clearBtn {
+  border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06aed5;
+  background-color: #411b3d;
   color: white;
+  &&:hover{
+    transition: all 0.3s ease-in-out;
+  }
 }
 
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+
+.color1 {color: #559e9e;}
+.color2 {color: #7abab5;}
+.color3 {color: #411b3d;}
+.color4 {color: #7a3f63;}
+.color5 {color: #c89a99;}

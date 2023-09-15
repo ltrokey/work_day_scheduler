@@ -1,23 +1,85 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-$(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
-});
+$(document).ready(function(){
+    // Date
+    const currentDayEl = $('#currentDay')
+    const currentDay = dayjs()
+    currentDayEl.text(currentDay.format('dddd, MMMM D, YYYY'))
+
+  // Time
+    const presentHour = dayjs().hour()
+
+    for (var hour = 9; hour <= 17; hour++) {
+      var hourElId = '#hour-' + hour
+      var timeBlockEl = $(hourElId)
+      var elementHour = hourElId.split('-')[1]
+        if (elementHour < presentHour) {
+        timeBlockEl.addClass('past')
+      } else if (elementHour == presentHour) {
+        timeBlockEl.addClass('present')
+      } else if (elementHour > presentHour) {
+        timeBlockEl.addClass('future')
+      }
+    }
+
+    //  Alert User
+
+    var alertTextEl = $('#alertText')
+
+    function showAlert(message, alertType) {
+      alertTextEl.text(message)
+      setTimeout(function () {
+        alertTextEl.text('')
+      }, 2000)
+      if (alertType == 'success') {
+        alertTextEl.attr('style', 'color: white;')
+      } else if (alertType == 'error') {
+        alertTextEl.attr('style', 'color: #411b3d;')
+      }
+    }
+
+    function loadSavedText(hourId) {
+      const savedInput = localStorage.getItem(hourId)
+      if (savedInput) {
+        $('#' + hourId).find('textarea.description').val(savedInput)
+      }
+    }
+
+    for (var hour = 9; hour <= 17; hour++) {
+      var hourElId = 'hour-' + hour
+      loadSavedText(hourElId)
+    }
+
+    function handleSaveClick(hourId) {
+      const textArea = $('#' + hourId).find('textarea.description')
+      const userInput = textArea.val()
+
+      if (userInput.trim() === '') {
+        showAlert('Please enter some text before saving.', 'error')
+      } else {
+        localStorage.setItem(hourId, userInput)
+
+        textArea.val(userInput)
+        showAlert('Event successfully saved!', 'success')
+      }
+    }
+
+    $('.saveBtn').on('click', function () {
+      const hourId = $(this).closest('.time-block').attr('id')
+      handleSaveClick(hourId)
+    })
+
+    // Clear User Input
+    $('.clearBtn').on('click', function () {
+      const hourId = $(this).closest('.time-block').attr('id')
+      const textArea = $('#' + hourId).find('textarea.description')
+
+      if (textArea.val().trim() !== '') {
+        const confirmation = confirm('Are you sure you want to clear the event? This action cannot be undone.')
+
+        if (confirmation) {
+          textArea.val('')
+          localStorage.removeItem(hourId)
+          showAlert('Event cleared successfully!', 'success')
+        }
+      }
+    })
+})
