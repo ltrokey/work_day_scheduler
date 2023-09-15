@@ -1,6 +1,6 @@
 # Work Day Scheduler
 
-[Link to live deploy](add url here)
+[Link to live deploy](https://ltrokey.github.io/work_day_scheduler/)
 
 ## Description
 
@@ -15,7 +15,7 @@ As developer, my project revolves around crafting a straightforward yet highly e
 
 ## Usage
 
-### To Add an Event:
+#### To Add an Event:
 
 1. Open the Application - Launch the web application in your web browser.
 2. At Event Time - Find the text area or input field that corresponds to the time you want to schedule your event. `Click` on this area.
@@ -23,7 +23,7 @@ As developer, my project revolves around crafting a straightforward yet highly e
 4. Save the Event - After entering the event description, locate and `click` the `Save` button represented by a diskette icon.
 5. Confirmation Alert - If your event is successfully saved, an alert will appear on the screen under the date confirming the operation. You'll see a message "Event successfully saved".
 
-### To Cancel an Event:
+#### To Cancel an Event:
 
 1. Locate the Event - Find the event that you want to cancel in the application's interface.
 2. `Click` Clear Button: Next to the event you want to delete, there should be a "Clear" button labeled `X`, and `Click`` this button.
@@ -31,7 +31,9 @@ As developer, my project revolves around crafting a straightforward yet highly e
 4. Confirm Deletion - `Click` `OK` in the confirmation prompt to confirm that you want to delete the event.
 5. Confirmation Alert - After confirming the deletion, you'll receive an alert confirming the successful removal of the event under the date.
 
-![alt text](assets/images/screenshot.png)
+![Display Page](./assets/screen_shot_display_page.png)
+
+![Display Events](./assets/screen_shot_display_events.png)
 
 ## License
 
@@ -65,20 +67,20 @@ SOFTWARE.
 
 The web application is built using a powerful combination of technologies: Day.js for efficient date and time manipulation, jQuery for enhanced interactivity, and Bootstrap for a sleek and responsive user interface. Users can easily manage their events with the following key features:
 
-### Event Management:
+#### Event Management:
 
 Users can effortlessly add, edit, and delete events, thanks to the intuitive design and interactions provided by jQuery and Bootstrap components.
 
-### Date and Time Handling:
+#### Date and Time Handling:
 Day.js ensures precise handling of dates and times, enabling users to set event schedules with ease and accuracy.
 
-### Save Events:
+#### Save Events:
 Users can save their events with a single click. When saving, an alert will confirm the successful save operation, providing immediate feedback.
 
-### Clear Events:
+#### Clear Events:
 Clearing events is just as simple as saving them. A dedicated function allows users to quickly remove events from their schedule. An alert notifies users of the successful clearing operation.
 
-### Error Handling:
+#### Error Handling:
 To prevent unintended actions, an error alert is displayed if users attempt to save an event with an empty event space. This helps maintain data integrity and ensures that users provide necessary information before saving an event.
 
 
