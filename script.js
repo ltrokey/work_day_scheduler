@@ -1,8 +1,24 @@
 $(document).ready(function(){
     // Date
-    var currentDayEl = $('#currentDay')
-    var currentDay = dayjs()
+    const currentDayEl = $('#currentDay')
+    const currentDay = dayjs()
     currentDayEl.text(currentDay.format('dddd, MMMM D, YYYY'))
+
+  // Time
+    const currentHour = dayjs().hour()
+
+    for (var hour = 9; hour <= 17; hour++) {
+      var hourElId = '#hour-' + hour
+      var currentHourEl = $(hourElId)
+      var elementHour = hourElId.split('-')[1]
+        if (elementHour < currentHour) {
+        currentHourEl.addClass('past')
+      } else if (elementHour == currentHour) {
+        currentHourEl.addClass('present')
+      } else if (elementHour > currentHour) {
+        currentHourEl.addClass('future')
+      }
+    }
 
     //  Save User Input
     function loadSavedText(hourId) {
@@ -12,15 +28,10 @@ $(document).ready(function(){
       }
     }
 
-    loadSavedText('hour-9')
-    loadSavedText('hour-10')
-    loadSavedText('hour-11')
-    loadSavedText('hour-12')
-    loadSavedText('hour-1')
-    loadSavedText('hour-2')
-    loadSavedText('hour-3')
-    loadSavedText('hour-4')
-    loadSavedText('hour-5')
+    for (var hour = 9; hour <= 17; hour++) {
+      var hourElId = 'hour-' + hour
+      loadSavedText(hourElId)
+    }
 
     function handleSaveClick(hourId) {
       const textArea = $('#' + hourId).find('textarea.description')
