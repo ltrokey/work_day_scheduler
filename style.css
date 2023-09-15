@@ -12,6 +12,13 @@ textarea {
   padding: 10px;
 }
 
+#alertText {
+  letter-spacing: 1px;
+  font-size: medium;
+  font-weight: bold;
+  font-style: italic;
+}
+
 .description {
   white-space: pre-wrap;
   border: 1px dashed lightgray;

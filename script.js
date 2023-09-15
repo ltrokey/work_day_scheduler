@@ -20,7 +20,22 @@ $(document).ready(function(){
       }
     }
 
-    //  Save User Input
+    //  Alert User
+
+    var alertTextEl = $('#alertText')
+
+    function showAlert(message, alertType) {
+      alertTextEl.text(message)
+      setTimeout(function () {
+        alertTextEl.text('')
+      }, 2000)
+      if (alertType == 'success') {
+        alertTextEl.attr('style', 'color: green;')
+      } else if (alertType == 'error') {
+        alertTextEl.attr('style', 'color: red;')
+      }
+    }
+
     function loadSavedText(hourId) {
       const savedInput = localStorage.getItem(hourId)
       if (savedInput) {
@@ -38,12 +53,12 @@ $(document).ready(function(){
       const userInput = textArea.val()
 
       if (userInput.trim() === '') {
-        alert('Please enter some text before saving.')
+        showAlert('Please enter some text before saving.', 'error')
       } else {
         localStorage.setItem(hourId, userInput)
 
         textArea.val(userInput)
-        alert('Text successfully saved!')
+        showAlert('Text successfully saved!', 'success')
       }
     }
 
@@ -63,10 +78,8 @@ $(document).ready(function(){
         if (confirmation) {
           textArea.val('')
           localStorage.removeItem(hourId)
-          alert('Text cleared successfully!')
+          showAlert('Text cleared successfully!', 'success')
         }
       }
     })
-
 })
-
