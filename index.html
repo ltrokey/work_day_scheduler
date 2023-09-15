@@ -21,6 +21,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
     <title>Work Day Scheduler</title>
   </head>
 
@@ -38,9 +40,9 @@
 
         <textarea class="col-2 col-md-9 description"></textarea>
 
-        <button class="saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
 
-        <button class="clearBtn col-2 col-md-1" aria-label="clear">X</button>
+        <button class="btn clearBtn col-2 col-md-1" aria-label="clear">X</button>
       </div>
 
       <div id="hour-10" class="row time-block">
@@ -48,9 +50,9 @@
 
         <textarea class="col-2 col-md-9 description" ></textarea>
 
-        <button class="saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
 
-        <button class="clearBtn col-2 col-md-1" aria-label="clear">X</button>
+        <button class="btn clearBtn col-2 col-md-1" aria-label="clear">X</button>
       </div>
 
       <div id="hour-11" class="row time-block">
@@ -58,9 +60,9 @@
 
         <textarea class="col-2 col-md-9 description" ></textarea>
 
-        <button class="saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
 
-        <button class="clearBtn col-2 col-md-1" aria-label="clear">X</button>
+        <button class="btn clearBtn col-2 col-md-1" aria-label="clear">X</button>
       </div>
 
       <div id="hour-12" class="row time-block">
@@ -68,9 +70,9 @@
 
         <textarea class="col-2 col-md-9 description" ></textarea>
 
-        <button class="saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
 
-        <button class="clearBtn col-2 col-md-1" aria-label="clear">X</button>
+        <button class="btn clearBtn col-2 col-md-1" aria-label="clear">X</button>
       </div>
 
       <div id="hour-1" class="row time-block">
@@ -78,9 +80,9 @@
 
         <textarea class="col-2 col-md-9 description" ></textarea>
 
-        <button class="saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
 
-        <button class="clearBtn col-2 col-md-1" aria-label="clear">X</button>
+        <button class="btn clearBtn col-2 col-md-1" aria-label="clear">X</button>
       </div>
 
       <div id="hour-2" class="row time-block">
@@ -88,9 +90,9 @@
 
         <textarea class="col-2 col-md-9 description" ></textarea>
 
-        <button class="saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
 
-        <button class="clearBtn col-2 col-md-1" aria-label="clear">X</button>
+        <button class="btn clearBtn col-2 col-md-1" aria-label="clear">X</button>
       </div>
 
       <div id="hour-3" class="row time-block">
@@ -98,9 +100,9 @@
 
         <textarea class="col-2 col-md-9 description" ></textarea>
 
-        <button class="saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
 
-        <button class="clearBtn col-2 col-md-1" aria-label="clear">X</button>
+        <button class="btn clearBtn col-2 col-md-1" aria-label="clear">X</button>
       </div>
 
       <div id="hour-4" class="row time-block">
@@ -108,9 +110,9 @@
 
         <textarea class="col-2 col-md-9 description" ></textarea>
 
-        <button class="saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
 
-        <button class="clearBtn col-2 col-md-1" aria-label="clear">X</button>
+        <button class="btn clearBtn col-2 col-md-1" aria-label="clear">X</button>
       </div>
 
       <div id="hour-5" class="row time-block">
@@ -118,14 +120,15 @@
 
         <textarea class="col-2 col-md-9 description" ></textarea>
 
-        <button class="saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save"><i class="fas fa-save" aria-hidden="true"></i></button>
 
-        <button class="clearBtn col-2 col-md-1" aria-label="clear">X</button>
+        <button class="btn clearBtn col-2 col-md-1" aria-label="clear">X</button>
       </div>
 
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
     crossorigin="anonymous"></script>
