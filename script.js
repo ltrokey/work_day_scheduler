@@ -30,9 +30,9 @@ $(document).ready(function(){
         alertTextEl.text('')
       }, 2000)
       if (alertType == 'success') {
-        alertTextEl.attr('style', 'color: green;')
+        alertTextEl.attr('style', 'color: white;')
       } else if (alertType == 'error') {
-        alertTextEl.attr('style', 'color: red;')
+        alertTextEl.attr('style', 'color: #411b3d;')
       }
     }
 
